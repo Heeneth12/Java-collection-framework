@@ -43,6 +43,41 @@ class MyLinkedList<T> {
 
     }
 
+    // Method to add a new node with given data at a specific position in the linked
+    // list
+    public void addInBetween(T data, int position) {
+        Node<T> newNode = new Node<T>(data); // Create a new node with the provided data
+
+        if (position < 0) {
+            System.out.println("Invalid position. Position should be non-negative.");
+            return;
+        }
+
+        if (position == 0) {
+            // If the position is 0, add the new node at the beginning
+            addFirst(data);
+        } else {
+            // If the position is greater than 0, traverse to the specified position and add
+            // the new node
+            Node<T> current = head;
+            for (int i = 1; i < position && current != null; i++) {
+                // Traverse to the specified position or until the end of the list
+                current = current.next;
+            }
+
+            if (current == null) {
+                System.out.println("Invalid position. Position exceeds the length of the list.");
+                return;
+            }
+
+            // Insert the new node at the specified position
+            newNode.next = current.next;
+            current.next = newNode;
+        }
+    }
+
+    // ... (existing code)
+
     // ---> appending data
     public void appendingData(T data) {
         Node<T> newNode = new Node<T>(data); // Create a new node with the provided data
@@ -86,5 +121,9 @@ public class LinkedList {
 
         System.out.println("Linked List:");
         myLinkedList.display(); // Display the contents of the linked list
+        myLinkedList.addInBetween(40, 1);
+
+        System.out.println("Linked List after adding at position 2:");
+        myLinkedList.display(); // Display the updated linked list
     }
 }
