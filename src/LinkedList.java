@@ -113,6 +113,7 @@ class MyLinkedList<T> {
 public class LinkedList {
     public static void main(String[] args) {
         MyLinkedList<Integer> myLinkedList = new MyLinkedList<Integer>(); // Create an instance of MyLinkedList
+        CustomStack<Integer> myStack = new CustomStack<Integer>();
 
         // Add nodes with data 12, 13, and 14 to the linked list
         myLinkedList.appendingData(56);
@@ -125,5 +126,12 @@ public class LinkedList {
 
         System.out.println("Linked List after adding at position 2:");
         myLinkedList.display(); // Display the updated linked list
+
+        System.out.println("my stack");
+        myStack.add(70);
+        myStack.add(30);
+        myStack.add(56);
+        myStack.displayStack();
+
     }
 }
