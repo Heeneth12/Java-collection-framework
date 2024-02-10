@@ -132,6 +132,9 @@ public class LinkedList {
         myStack.add(30);
         myStack.add(56);
         myStack.displayStack();
+        myStack.pop();
+        myStack.peak();
 
+        myStack.displayStack();
     }
 }
